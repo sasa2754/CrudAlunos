@@ -10,9 +10,9 @@ const cadastro = require('./src/controllers/cadastro');
 // Iniciando as rotas
 route.get('/', home.pagInicialGet);
 
-route.get('/', )
 
-route.post('/', cadastro.salaInsert);
+route.post('/cadastroSala', cadastro.salaInsert);
+route.post('/cadastroAluno', cadastro.alunoInsert);
 
 module.exports = route;
 

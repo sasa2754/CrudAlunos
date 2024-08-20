@@ -1,4 +1,7 @@
+// Criando a estrutura da tabela do banco
+
 const Sequelize = require('sequelize');
+const sala = require('./sala');
 const database = require('../config/db');
 
 const aluno = database.define('Aluno', {
@@ -25,4 +28,10 @@ const aluno = database.define('Aluno', {
         allowNull: false
     }
 });
+
+aluno.belongsTo(sala, {
+    constraint: true, //Garantir integridade referencial
+    foreignKey: 'IDSala'
+    });
+
 module.exports = aluno;

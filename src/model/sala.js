@@ -1,3 +1,5 @@
+// Criando a estrutura da tabela do banco
+
 const Sequelize = require('sequelize')
 const database = require('../config/db')
 
