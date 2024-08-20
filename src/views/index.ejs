@@ -161,10 +161,9 @@
         
         <div>
             <h1 class="centralize">Alunos</h1>
-
-                <% for (let i=0; i<alunos.length; i++) { %>
-                    <div class="col">
-                        <div class="card h-100">
+                <div class="card-deck d-flex justify-content-center mb-3">
+                    <% for (let i=0; i<alunos.length; i++) { %>
+                        <div class="card col-sm-4 p-3 shadow text-center" style="width: 18rem;">
                             <img src="img/<%= alunos[i].Foto %>" class="card-img-top" alt="Foto aluno">
                             <div class="card-body">
                                 <h5 class="card-title"><%= alunos[i].Nome %></h5>
@@ -174,8 +173,8 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
-                <% } %>
+                    <% } %>
+                </div>
         
                 <!-- <div class="card-deck d-flex justify-content-center mb-3">
 
