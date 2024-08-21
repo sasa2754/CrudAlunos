@@ -2,12 +2,12 @@
     background-color: black;
 } */
 
-img {
-    height: 200px;
+/* img {
+    height: 400px;
     object-fit: cover;
-}
+} */
 
-select {
+select{
     /* appearance: none; */
     max-width: 100%;
     width: 600px;
@@ -31,21 +31,31 @@ option {
     border-radius: 5px;
 }
 
+label {
+    margin-top: 8px;
+}
+
+input[type="text"] {
+    max-width: 100%;
+    width: 600px;
+    height: 2.5rem;
+}
 
 input[type="file"] {
     display: none;
-}
-
-
+}   
 
 .custom-file {
-    background-image: url(../img/icone-perfil.png);
-    background-size: 150px;
-    width: 150px;
+    background-size: 350px;
+    max-width: 50%;
+    width: 350px;
     background-repeat: no-repeat;
-    height: 150px;
+    max-height: 50%;
+    height: 350px;
     cursor: pointer;
     transition: 0.1s ease-in-out;
+    border-radius: 5%;
+    z-index: 10;
 }
 
 .custom-file:hover {
@@ -56,28 +66,6 @@ input[type="file"] {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-
-.dropdown {
-    margin-left: 2.5rem;
-}
-
-.card-body {
-    padding: 0.8rem;
-}
-
-
-.nav-link {
-    padding-top: 6px;
-    padding-bottom: 6px;
-}
-
-
-#optionsSalaMenu {
-    display: flex;
-    max-width: 10%;
-    margin-left: 15px;
 }
 
 #imgFoto {

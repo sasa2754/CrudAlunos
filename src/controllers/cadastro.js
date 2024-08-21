@@ -6,7 +6,7 @@ const aluno = require('../model/aluno');
 
 module.exports = {
     async sala(req, res){
-    res.render('../views/index');
+        res.render('../views/index');
     },
 
     async salaInsert(req, res){
@@ -21,20 +21,27 @@ module.exports = {
     res.redirect('/');
     },
 
+    async aluno(req, res){
+        res.render('../views/index');
+    },
+
     async alunoInsert(req, res) {
         const dados = req.body;
-        // var select = dados.select;
-        // var option = select.children[select.selectedIndex];
-        // var texto = option.textContent;
-        // console.log(texto);
+
+        let foto = 'usuario.png';
+
+        if (req.file) {
+            foto = req.file.filename;
+        }
         
         await aluno.create({
             Nome: dados.nome,
             Idade: dados.idade,
             Sexo: dados.genero,
-            Foto: dados.imagem,
+            Foto: foto,
             IDSala: dados.selectSala
         });
     res.redirect('/');
-    }
+    },
+
 }

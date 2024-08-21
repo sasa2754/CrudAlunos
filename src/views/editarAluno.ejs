@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="/css/styleEditar.css">
+    <title>Editar Aluno</title>
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-dark bg-dark shadow justify-content-space-between mb-4">
+            <a class="navbar-brand" href="/"><b>Controle</b> de Alunos</a>
+          </nav>
+
+    </header>
+
+    <main>
+        <div class="container">   
+                <form action="/editarAluno/<%= alunos.IDAluno %>" method="post" enctype="multipart/form-data" class="text-center shadow p-4" style="border-radius: 2.5%;">
+                    <h3 class="mb-4">Editar Aluno(a)</h3>
+                    
+                    
+                    <div class="centralize">
+                        <!-- <label for="imagem" id="preview" class="custom-file center mb-4" style="background-image: url('/img/<%= alunos.Foto %>');" onclick="document.getElementById('flImage').click()"></label> -->
+                        <img src="/img/<%= alunos.Foto %>" alt="Imagem" onclick="document.getElementById('flImage').click()">
+                        <input type="file" id="flImage" name="imagem" accept="image/" onchange="img()">
+                    </div>
+
+                    <div class="centralize mb-4">
+                        <label for="nome" class="mr-1">Nome</label>
+                        <input type="text" value="<%= alunos.Nome %>" name="nome" class="form-control">
+                    </div>
+
+                    <div class="centralize mb-4">
+                        <label for="idade" class="mr-2">Idade</label>
+                        <input type="text" value="<%= alunos.Idade %>" name="idade" class="form-control">
+                    </div>
+
+                    <div class="centralize mb-4">
+                        <label for="sexo" class="mr-3">Sexo</label>
+                        <input type="text" value="<%= alunos.Sexo %>" name="sexo" class="form-control">
+                    </div>
+
+                    <div class="centralize">
+                        <label for="sala" class="mr-4">Sala</label>
+                        <select id="sala" name="sala">
+                        <% for (let i=0; i<salas.length; i++) { %>
+                            <option value='<%= salas[i].IDSala %>' <%= alunos.IDSala == salas[i].IDSala ? 'selected' : ''%>> <%= salas[i].Nome %> </option>
+                        <% } %>
+                        </select>
+                    </div>
+
+
+                    <input class="btn btn-primary mt-4" type="submit" value="Atualizar" />
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+
+    <script src="/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
