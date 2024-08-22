@@ -12,7 +12,7 @@
     <header>
 
         <nav class="navbar navbar-dark bg-dark shadow justify-content-space-between mb-4">
-            <a class="navbar-brand" href="/"><b>Controle</b> de Alunos</a>
+            <a class="navbar-brand" href="/"><b class="gradient">Controle</b> de Alunos</a>
           </nav>
 
     </header>
@@ -23,10 +23,10 @@
                     <h3 class="mb-4">Editar Aluno(a)</h3>
                     
                     
-                    <div class="centralize">
-                        <!-- <label for="imagem" id="preview" class="custom-file center mb-4" style="background-image: url('/img/<%= alunos.Foto %>');" onclick="document.getElementById('flImage').click()"></label> -->
-                        <img src="/img/<%= alunos.Foto %>" alt="Imagem" onclick="document.getElementById('flImage').click()">
-                        <input type="file" id="flImage" name="imagem" accept="image/" onchange="img()">
+                    <div class="">
+                        <label for="imagem" id="preview" class="custom-file center mb-4" style="background-image: url('/img/<%= alunos.Foto %>');" onclick="document.getElementById('file').click()"></label>
+                        <!-- <img src="/img/<%= alunos.Foto %>" alt="Imagem" onclick="document.getElementById('flImage').click()"> -->
+                        <input type="file" id="file" name="imagem" accept="image/" onchange="img()">
                     </div>
 
                     <div class="centralize mb-4">

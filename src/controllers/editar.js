@@ -4,6 +4,31 @@ const aluno = require('../model/aluno');
 const fs = require('fs');
 
 module.exports = {
+    async salas(req, res) {
+        const parametro = req.params.id;
+        const salasEditar = await sala.findByPk(parametro, {
+            raw: true,
+            attributes: ['IDSala', 'Nome', 'Capacidade']
+        });
+        res.render('../views/editarSala', {salasEditar});
+    },
+
+    async atualizar(req, res) {
+        const dados = req.body;
+        const id = req.params.id;
+
+        await sala.update ({
+            Nome: dados.nomeSala,
+            Capacidade: dados.capacidadeSala
+        },
+        {
+            where: { IDSala: id }
+        });
+
+        res.redirect('/');
+
+    },
+
     async alunos(req, res){
         // Recebendo o id da URL
         const parametro = req.params.id;

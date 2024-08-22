@@ -10,7 +10,7 @@ module.exports = {
             attributes: ['IDSala', 'Nome'],
         });
 
-        res.render('../views/index', {salas, alunos: '', id: ''});
+        res.render('../views/index', {salas, alunos: '', id});
     },
 
     async pagInicialPost(req, res){

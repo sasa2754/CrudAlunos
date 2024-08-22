@@ -43,10 +43,20 @@ input[type="text"] {
 
 input[type="file"] {
     display: none;
-}   
+}
+
+.gradient {
+    background: linear-gradient(90deg, rgba(252,18,18,1) 0%, rgba(124,40,166,1) 25%, rgba(17,70,182,1) 46%, rgba(14,180,175,1) 68%, rgba(17,164,11,1) 80%, rgba(36,219,29,1) 93%);
+    color: black;
+    background-clip: text;
+    -webkit-background-clip: text;
+  
+    /* Adicionado: */
+    -webkit-text-fill-color: transparent;
+}
 
 .custom-file {
-    background-size: 350px;
+    background-size: 370px;
     max-width: 50%;
     width: 350px;
     background-repeat: no-repeat;
@@ -54,7 +64,7 @@ input[type="file"] {
     height: 350px;
     cursor: pointer;
     transition: 0.1s ease-in-out;
-    border-radius: 5%;
+    border-radius: 50%;
     z-index: 10;
 }
 

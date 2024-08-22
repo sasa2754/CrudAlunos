@@ -1,9 +1,9 @@
-/* body {
-    background-color: black;
-} */
+body {
+    overflow-x: hidden;
+}
 
 img {
-    height: 200px;
+    height: 320px;
     object-fit: cover;
 }
 
@@ -36,7 +36,34 @@ input[type="file"] {
     display: none;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+}
 
+::-webkit-scrollbar-track {
+    background: rgb(52,58,64);
+    background: linear-gradient(180deg, rgba(52,58,64,1) 0%, rgba(106,115,125,1) 52%, rgba(52,58,64,1) 100%);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #191d20b9;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #14191b;
+}
+
+
+.gradient {
+    background: linear-gradient(90deg, rgba(252,18,18,1) 0%, rgba(124,40,166,1) 25%, rgba(17,70,182,1) 46%, rgba(14,180,175,1) 68%, rgba(17,164,11,1) 80%, rgba(36,219,29,1) 93%);
+    color: black;
+    background-clip: text;
+    -webkit-background-clip: text;
+  
+    /* Adicionado: */
+    -webkit-text-fill-color: transparent;
+}
 
 .custom-file {
     background-image: url(../img/icone-perfil.png);

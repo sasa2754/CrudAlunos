@@ -13,7 +13,7 @@
 
         <nav class="navbar navbar-dark bg-dark shadow justify-content-space-between mb-4">
 
-            <a class="navbar-brand" href="/"><b>Controle</b> de Alunos</a>
+            <a class="navbar-brand" href="/"><b class="gradient">Controle</b> de Alunos</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
               <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,6 @@
 
                                         <div class="form-group justify-content-center d-flex">
                                             <label for="file" id="preview" class="custom-file center"></label>
-                                            <!-- <label for="formGroupExampleInput">Nome</label> -->
                                             <input type="file" name="imagem" id="file" accept="image/" onchange="img()">
                                         </div>
 
@@ -50,20 +49,13 @@
                                         </div>
 
                                         <div class="form-group">
-                                        <label for="idade">Idade</label>
-                                        <input type="number" class="form-control" id="idade" name="idade">
+                                            <label for="idade">Idade</label>
+                                            <input type="number" class="form-control" id="idade" name="idade">
                                         </div>
 
                                         <div class="form-group">
-                                        <label for="optionsGenero">Gênero</label>
-                                        <!-- <br> -->
-                                        <input type="text" class="form-control" id="genero" name="genero">
-                                        <!-- <select name="select" id="optionsGenero">
-                                            <option value="genero" name="genero" selected>Nenhum</option>
-                                            <option value="genero" name="genero">Feminino</option>
-                                            <option value="genero" name="genero">Masculino</option>
-                                            <option value="genero" name="genero">Outro</option>
-                                        </select> -->
+                                            <label for="optionsGenero">Gênero</label>
+                                            <input type="text" class="form-control" id="genero" name="genero">
                                         </div>
 
                                         <div class="form-group">
@@ -128,8 +120,7 @@
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <!-- <input type="submit" class="btn btn-primary"> -->
-                                         <button type="submit" class="btn btn-primary">Cadastrar Sala</button>
+                                        <button type="submit" class="btn btn-primary">Cadastrar Sala</button>
                                     </div>
 
                                 </form>
@@ -145,108 +136,41 @@
           </nav>
 
     </header>
-        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Sala de Aula
-        </button> -->
 
-        <form action="/" method="post">
-            <select name="selectSalaMenu" id="optionsSalaMenu" onchange="this.form.submit()">
-                <option>Selecione uma sala</option>
+        <form method="post">
+            <select name="selectSalaMenu" id="optionsSalaMenu" onchange="this.form.submit()" required>
+                <option value="0">Selecione uma sala</option>
                 <% for (let i=0; i<salas.length; i++) { %>
-                    <option value='<%= salas[i].IDSala %>' <%= id == salas[i].IDSala ? 'selected' : ''%>> <%= salas[i].Nome %> </option>
+                    <option value='<%= salas[i].IDSala %>' <%= id == salas[i].IDSala ? 'selected' : ''%>> <%= salas[i].Nome %> <%= salas[i].IDSala %></option>
                 <% } %>
             </select>
         </form>
-
-
-
-    <main class="container">
+        <form action="editarSala/<%= id %>" method="get">
+            <button type="submit" class="btn btn-primary">Editar Sala <%= id%></button>
+        </form>
+        <% if (id > -1) { %>
+        <% } %>
         
         <div>
             <h1 class="centralize">Alunos</h1>
-                <div class="card-deck d-flex justify-content-center mb-3">
-                    <% for (let i=0; i<alunos.length; i++) { %>
-                        <div class="card col-sm-4 p-3 shadow text-center" style="width: 18rem;">
-                            <img src="img/<%= alunos[i].Foto %>" class="card-img-top" alt="Foto aluno">
-                            <div class="card-body">
-                                <h5 class="card-title"><%= alunos[i].Nome %></h5>
-                                <p class="card-text">Idade: <%= alunos[i].Idade %></p>
-
-                                <form action="/editarAluno/<%= alunos[i].IDAluno %>" method="get">
-                                    <button type="submit" class="btn btn-secondary">Editar</button>
-                                        
-                                </form>
-                            </div>
-                        </div>
-                    <% } %>
-                </div>
-        
-                <!-- <div class="card-deck d-flex justify-content-center mb-3">
-
-                    <div class="card col-sm-4 p-3 shadow text-center" style="width: 18rem;">
-                        <img class="card-img-top" src="img/Amilton.jpeg" alt="Imagem de capa do card">
+            <div class="row centralize">
+                <% for (let i=0; i<alunos.length; i++) { %>
+                    <div class="card col-sm-3 p-3 shadow text-center m-1" style="width: 18rem;">
+                        <img src="img/<%= alunos[i].Foto %>" class="card-img-top" alt="Foto aluno">
                         <div class="card-body">
-                        <h5 class="card-title">Amilton</h5>
-                        <p class="card-text">Idade: 20</p>
+                            <h5 class="card-title"><%= alunos[i].Nome %></h5>
+                            <p class="card-text">Idade: <%= alunos[i].Idade %></p>
+
+                            <form action="/editarAluno/<%= alunos[i].IDAluno %>" method="get">
+                                <button type="submit" class="btn btn-secondary">Editar</button>
+                            </form>
+
                         </div>
-                        <a href="#" class="btn btn-primary">Editar</a>
                     </div>
-
-                    <div class="card col-sm-4 p-3 shadow text-center" style="width: 18rem;">
-                        <img class="card-img-top" src="img/Sabrina.jpeg" alt="Imagem de capa do card" style="object-position: 50% 60%;">
-                        <div class="card-body">
-                        <h5 class="card-title">Sabrina</h5>
-                        <p class="card-text">Idade: 19</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Editar</a>
-                    </div>
-
-                    <div class="card col-sm-4 p-3 shadow text-center" style="width: 18rem;">
-                        <img class="card-img-top" src="img/Andrey.jpeg" alt="Imagem de capa do card" style="object-position: 50% 60%;">
-                        <div class="card-body">
-                        <h5 class="card-title">Andrey</h5>
-                        <p class="card-text">Idade: 19</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Editar</a>
-                    </div>
-
-                </div>
-
-                <div class="card-deck">
-
-                    <div class="card col-sm-4 p-3 shadow text-center" style="width: 18rem;">
-                        <img class="card-img-top" src="img/Nicolle.jpeg" alt="Imagem de capa do card" style="object-position: 50% 40%;">
-                        <div class="card-body">
-                        <h5 class="card-title">Nicolle</h5>
-                        <p class="card-text">Idade: 18</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Editar</a>
-                    </div>
-
-                    <div class="card col-sm-4 p-3 shadow text-center" style="width: 18rem;">
-                        <img class="card-img-top" src="img/Fernando.jpeg" alt="Imagem de capa do card">
-                        <div class="card-body">
-                        <h5 class="card-title">Fernando</h5>
-                        <p class="card-text">Idade: 19</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Editar</a>
-                    </div>
-
-                    <div class="card col-sm-4 p-3 shadow text-center" style="width: 18rem;">
-                        <img class="card-img-top" src="img/Kauane.jpeg" alt="Imagem de capa do card" style="object-position: 50% 25%;">
-                        <div class="card-body">
-                        <h5 class="card-title">Kauane</h5>
-                        <p class="card-text">Idade: 20</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">Editar</a>
-                    </div>
-
-                </div> -->
+                <% } %>
+            </div>
 
         </div>
-
-    </main>
-
 
     <script src="js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

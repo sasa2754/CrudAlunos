@@ -13,3 +13,7 @@ function img() {
         labelImg.backgroundPosition = 'center';
     };
 }
+
+function submitEditarSala() {
+    document.getElementById('editarSala').submit();
+}

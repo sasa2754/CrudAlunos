@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="/css/styleEditar.css">
+    <title>Editar Aluno</title>
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-dark bg-dark shadow justify-content-space-between mb-4">
+            <a class="navbar-brand" href="/"><b class="gradient">Controle</b> de Alunos</a>
+          </nav>
+
+    </header>
+
+    <main>
+        <div class="container">   
+                <form action="/editarSala/<%= salas.IDSala %>" method="post" enctype="multipart/form-data" class="text-center shadow p-4" style="border-radius: 2.5%;">
+                    <h3 class="mb-4">Editar Sala</h3>
+                    
+
+                    <div class="centralize mb-4">
+                        <label for="nomeSala" class="mr-1">Nome</label>
+                        <input type="text" value="<%= salas.Nome %>" name="nomeSala" class="form-control">
+                    </div>
+
+                    <div class="centralize mb-4">
+                        <label for="capacidadeSala" class="mr-3">Capacidade</label>
+                        <input type="number" value="<%= salas.Capacidade %>" name="capacidadeSala" class="form-control">
+                    </div>
+
+
+                    <input class="btn btn-primary mt-4" type="submit" value="Atualizar" />
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+
+    <script src="/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
