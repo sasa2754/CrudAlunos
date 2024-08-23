@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="/css/styleEditar.css">
+    <link rel="stylesheet" href="/css/styleEditarSala.css">
     <title>Editar Aluno</title>
 </head>
 <body>
@@ -19,18 +19,18 @@
 
     <main>
         <div class="container">   
-                <form action="/editarSala/<%= salas.IDSala %>" method="post" enctype="multipart/form-data" class="text-center shadow p-4" style="border-radius: 2.5%;">
+                <form action="/editarSala/<%= salasEditar.IDSala %>" method="post" enctype="multipart/form-data" class="text-center shadow p-4" style="border-radius: 2.5%;">
                     <h3 class="mb-4">Editar Sala</h3>
                     
 
                     <div class="centralize mb-4">
-                        <label for="nomeSala" class="mr-1">Nome</label>
-                        <input type="text" value="<%= salas.Nome %>" name="nomeSala" class="form-control">
+                        <label for="nomeSala" class="ml-4 mr-4">Nome</label>
+                        <input type="text" value="<%= salasEditar.Nome %>" name="nomeSala" class="form-control">
                     </div>
 
-                    <div class="centralize mb-4">
-                        <label for="capacidadeSala" class="mr-3">Capacidade</label>
-                        <input type="number" value="<%= salas.Capacidade %>" name="capacidadeSala" class="form-control">
+                    <div class="centralize mb-2">
+                        <label for="capacidadeSala" class="mr-2">Capacidade</label>
+                        <input type="number" value="<%= salasEditar.Capacidade %>" name="capacidadeSala" class="form-control">
                     </div>
 
 

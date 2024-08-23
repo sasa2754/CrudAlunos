@@ -11,7 +11,7 @@
 <body>
     <header>
 
-        <nav class="navbar navbar-dark bg-dark shadow justify-content-space-between mb-4">
+        <nav class="navbar navbar-dark bg-dark shadow justify-content-space-between mb-3">
 
             <a class="navbar-brand" href="/"><b class="gradient">Controle</b> de Alunos</a>
 
@@ -65,7 +65,7 @@
                                             <option>Selecione uma sala</option>
                                             <% for (let i=0; i<salas.length; i++) { %>
                                                 <option selected value='<%= salas[i].IDSala %>'
-                                                <%= id = salas[i].IDSala ? 'selected' : ''%>>
+                                                <%= id == salas[i].IDSala ? 'selected' : ''%>>
                                                 <%= salas[i].Nome %> </option>
                                             <% } %>
                                         </select>
@@ -137,19 +137,22 @@
 
     </header>
 
-        <form method="post">
-            <select name="selectSalaMenu" id="optionsSalaMenu" onchange="this.form.submit()" required>
+
+        <form action="/" method="post">
+            <select name="selectSalaMenu" id="optionsSalaMenu" onchange="this.form.submit()">
                 <option value="0">Selecione uma sala</option>
                 <% for (let i=0; i<salas.length; i++) { %>
-                    <option value='<%= salas[i].IDSala %>' <%= id == salas[i].IDSala ? 'selected' : ''%>> <%= salas[i].Nome %> <%= salas[i].IDSala %></option>
+                    <option value="<%= salas[i].IDSala %>" <%= id == salas[i].IDSala ? 'selected' : ''%>> <%= salas[i].Nome %> <%= salas[i].IDSala %></option>
                 <% } %>
             </select>
         </form>
-        <form action="editarSala/<%= id %>" method="get">
-            <button type="submit" class="btn btn-primary">Editar Sala <%= id%></button>
-        </form>
-        <% if (id > -1) { %>
+
+        <% if (id > 0) { %>
+            <form action="editarSala/<%= id %>" method="get">
+                <button type="submit" class="btn btn-secondary" id="botaoEditarSala">Editar Sala</button>
+            </form>
         <% } %>
+
         
         <div>
             <h1 class="centralize">Alunos</h1>

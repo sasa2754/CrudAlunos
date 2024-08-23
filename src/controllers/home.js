@@ -4,6 +4,7 @@ const aluno = require('../model/aluno');
 module.exports = {
     async pagInicialGet(req, res) {
         const id = req.body.nome;
+
         // Encontrando todas as salas disponíveis no SQL
         const salas = await sala.findAll({
             raw: true, // Retorna somente os valores de uma tabela, sem os metadados.

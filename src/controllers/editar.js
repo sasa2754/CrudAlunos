@@ -5,17 +5,24 @@ const fs = require('fs');
 
 module.exports = {
     async salas(req, res) {
+        // Parâmetro é a sala que vai ser editada
         const parametro = req.params.id;
+        // console.log(`parâmetro: ${parametro}`);
         const salasEditar = await sala.findByPk(parametro, {
             raw: true,
             attributes: ['IDSala', 'Nome', 'Capacidade']
         });
+
         res.render('../views/editarSala', {salasEditar});
     },
 
+    // Ver pq ele n ta atualizando
     async atualizar(req, res) {
+        // Dados é object object e id é a sala que está selecionada
         const dados = req.body;
         const id = req.params.id;
+        // console.log(`id: ${id}`);
+        // console.log(`dados: ${dados}`);
 
         await sala.update ({
             Nome: dados.nomeSala,
@@ -44,6 +51,7 @@ module.exports = {
     async adicionar(req, res){
         const dados = req.body;
         const id = req.params.id;
+        // console.log(`dados: ${dados}`);
 
         if (req.file) {
             // Recebendo a antiga foto do aluno

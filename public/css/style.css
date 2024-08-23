@@ -85,9 +85,12 @@ input[type="file"] {
     align-items: center;
 }
 
-
-.dropdown {
-    margin-left: 2.5rem;
+#botaoEditarSala {
+    display: flex;
+    max-width: 5.3%;
+    width: 300px;
+    margin-left: 15px;
+    margin-top: 10px;
 }
 
 .card-body {
