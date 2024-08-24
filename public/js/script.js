@@ -14,6 +14,18 @@ function img() {
     };
 }
 
-function submitEditarSala() {
-    document.getElementById('editarSala').submit();
+
+function deleteUser(event, room) {
+    event.preventDefault();
+    
+    const value = document.createElement('input')
+
+    value.type = 'hidden';
+    value.name = 'roomId';
+    value.value = room;
+
+    event.currentTarget.appendChild(value)
+    
+    
+    event.currentTarget.submit();
 }

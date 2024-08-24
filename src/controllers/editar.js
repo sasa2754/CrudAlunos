@@ -7,7 +7,7 @@ module.exports = {
     async salas(req, res) {
         // Parâmetro é a sala que vai ser editada
         const parametro = req.params.id;
-        // console.log(`parâmetro: ${parametro}`);
+        console.log(`parâmetro: ${parametro}`);
         const salasEditar = await sala.findByPk(parametro, {
             raw: true,
             attributes: ['IDSala', 'Nome', 'Capacidade']
@@ -81,5 +81,17 @@ module.exports = {
             where: { IDAluno: id }
         });
             res.redirect('/');
+    },
+
+    async deletar(req, res) {
+        const id = req.params.id;
+
+        const room = await sala.findByPk(id);
+
+        if (room != null) {
+            await room.destroy();
         }
+
+        res.redirect("/");
+    }
 }

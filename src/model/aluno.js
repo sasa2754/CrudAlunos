@@ -29,9 +29,12 @@ const aluno = database.define('Aluno', {
     }
 });
 
+
 aluno.belongsTo(sala, {
     constraint: true, //Garantir integridade referencial
-    foreignKey: 'IDSala'
-    });
+    foreignKey: 'IDSala',
+    onDelete: 'CASCADE'
+});
+
 
 module.exports = aluno;

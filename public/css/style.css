@@ -85,13 +85,6 @@ input[type="file"] {
     align-items: center;
 }
 
-#botaoEditarSala {
-    display: flex;
-    max-width: 5.3%;
-    width: 300px;
-    margin-left: 15px;
-    margin-top: 10px;
-}
 
 .card-body {
     padding: 0.8rem;
@@ -101,6 +94,42 @@ input[type="file"] {
 .nav-link {
     padding-top: 6px;
     padding-bottom: 6px;
+}
+
+.trash {
+    bottom: 7%;
+    right: 5%;
+    color: rgb(219, 37, 37);
+    transition: 300ms;
+    border-radius: 50%;
+    box-shadow: 0;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    aspect-ratio: 1/1;
+}
+
+.trash:hover {
+    transform: scale(1.1);
+    box-shadow: inset 0px 0px 10px 2px rgba(255, 0, 0, 0.26), 0px 0px 10px 2px rgba(255, 0, 0, 0.26);
+}
+
+.trash:active {
+    transform: scale(1.1);
+    box-shadow: inset 0px 0px 10px 2px rgba(228, 191, 191, 0.699), 0px 0px 10px 2px rgba(228, 191, 191, 0.699);
+}
+
+.trash:focus {
+    outline: none;
+}
+
+.classOptions {
+    width: 110px;
+    display: flex;
+    text-align: center;
+    margin-left: 15px;
+    margin-top: 10px;
+
 }
 
 

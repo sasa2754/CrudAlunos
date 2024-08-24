@@ -24,7 +24,7 @@
                     
                     
                     <div class="">
-                        <label for="imagem" id="preview" class="custom-file center mb-4" style="background-image: url('/img/<%= alunos.Foto %>');" onclick="document.getElementById('file').click()"></label>
+                        <label for="imagem" id="preview" class="custom-file center mb-4" style="background-image: url('/img/<%= alunos.Foto %>'); background-position: center center;" onclick="document.getElementById('file').click()"></label>
                         <!-- <img src="/img/<%= alunos.Foto %>" alt="Imagem" onclick="document.getElementById('flImage').click()"> -->
                         <input type="file" id="file" name="imagem" accept="image/" onchange="img()">
                     </div>
@@ -37,6 +37,7 @@
                     <div class="centralize mb-4">
                         <label for="idade" class="mr-2">Idade</label>
                         <input type="text" value="<%= alunos.Idade %>" name="idade" class="form-control">
+                        
                     </div>
 
                     <div class="centralize mb-4">
